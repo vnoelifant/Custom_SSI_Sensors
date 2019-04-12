@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<pipeline ssi-v="1">
+
+	<register>
+		<load name="python" />
+		<load name="ioput" />
+    </register>
+    
+    <sensor create="PythonSensor" script="myo_sensor">
+        <output channel="emg" pin="emg"/>
+        <output channel="orientation" pin="ori"/>
+    </sensor>
+
+    <consumer create="FileWriter" path="emg" type="1">
+        <input pin="emg" frame="2.0"s />
+    </consumer>
+
+    <consumer create="FileWriter" path="orientation" type="1">
+        <input pin="ori" frame="2.0s" />
+    </consumer>
+
+</pipeline>
