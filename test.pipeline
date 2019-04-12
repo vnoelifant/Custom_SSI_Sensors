@@ -6,16 +6,16 @@
 		<load name="ioput" />
     </register>
     
-    <sensor create="PythonSensor" script="myo_sensor">
+    <sensor create="PythonSensor" syspath="myo_sensor" script="myo_sensor">
         <output channel="emg" pin="emg"/>
         <output channel="orientation" pin="ori"/>
     </sensor>
 
-    <consumer create="FileWriter" path="emg" type="1">
-        <input pin="emg" frame="2.0"s />
+    <consumer create="FileWriter" path="data\\emg" type="1">
+        <input pin="emg" frame="2.0s" />
     </consumer>
 
-    <consumer create="FileWriter" path="orientation" type="1">
+    <consumer create="FileWriter" path="data\\orientation" type="1">
         <input pin="ori" frame="2.0s" />
     </consumer>
 
