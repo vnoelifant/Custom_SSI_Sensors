@@ -47,7 +47,7 @@ def read(name, sout, reset, board, opts, vars):
             return
         for i in range(9):
             sout[0, i] = emg.popleft()
-        print(sout)
+        #print(sout)
     elif name == 'orientation':
         orientation = vars['listener'].get_orientation()
         #print(len(orientation))
@@ -55,7 +55,7 @@ def read(name, sout, reset, board, opts, vars):
             return
         for i in range(11):
             sout[0, i] = orientation.popleft()
-        print(sout)
+        #print(sout)
     else:
         print('unknown channel name')
 
