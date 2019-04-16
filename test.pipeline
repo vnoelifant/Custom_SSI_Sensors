@@ -4,9 +4,14 @@
 	<register>
 		<load name="python" />
 		<load name="ioput" />
+        <load name="ssimouse" />
     </register>
     
-    <sensor create="PythonSensor" syspath="myo_sensor" script="myo_sensor">
+    <sensor create="Mouse:mouse" sr="50.0" mask="1" event="true" address="click@button">        
+        <output channel="button" pin="button" />
+    </sensor>
+    
+    <sensor create="PythonSensor" syspath="myo_sensor" script="myo_sensor" optsstr="sr=10">
         <output channel="emg" pin="emg"/>
         <output channel="orientation" pin="ori"/>
     </sensor>
@@ -14,6 +19,10 @@
     <consumer create="FileWriter" path="data\\emg" type="1">
         <input pin="emg" frame="2.0s" />
     </consumer>
+    
+    <consumer create="FileWriter" path="data\\button" overwrite="true" type="1">
+		<input pin="button" frame="2.0s" />
+	</consumer>
 
     <consumer create="FileWriter" path="data\\orientation" type="1">
         <input pin="ori" frame="2.0s" />
