@@ -34,7 +34,7 @@ class MyoListener(myo.DeviceListener):
                 gyroscope[1], gyroscope[2]]
 
         if len(vals) >= 11:
-            print("stored orientation")
+            #print("stored orientation")
             self.ORIENTATION_DATA = deque(vals)
             #self.write_orientation_data()
 
@@ -52,7 +52,7 @@ class MyoListener(myo.DeviceListener):
         emgVals.append(emg[7])
 
         if len(emgVals) >= 9:
-            print("stored emg")
+            #print("stored emg")
             self.EMG_DATA = deque(emgVals)
 
     def on_pose(self, event):
@@ -60,7 +60,7 @@ class MyoListener(myo.DeviceListener):
         return
 
     def get_orientation(self):
-        print(self.ORIENTATION_DATA)
+        #print(self.ORIENTATION_DATA)
         return self.ORIENTATION_DATA
 
     def get_emgVals(self):

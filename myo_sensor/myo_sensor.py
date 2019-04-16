@@ -1,17 +1,16 @@
 import myo
 from myo_helpers import main
+import time
 import threading
 
 
 def getOptions(opts, vars):
     opts['sr'] = 1.0
 
-    myo.init(sdk_path='.\\myo_sensor\\myo_helpers\\myo-sdk-win-0.9.0')
+    myo.init(sdk_path='./myo_sensor/myo_helpers/myo-sdk-win-0.9.0')
 
-    vars['hub'] = myo.Hub
+    vars['hub'] = myo.Hub()
     vars['listener'] = main.MyoListener()
-
-    vars['hub'].run_in_background(vars['listener'].on_event, 500)
 
 
 def getChannelNames(opts, vars):
@@ -38,18 +37,25 @@ def connect(opts, vars):
 
 
 def read(name, sout, reset, board, opts, vars):
+    vars['hub'].run(handler=vars['listener'].on_event, duration_ms=int((opts['sr']*1000)/4))
+    #time.sleep(opts['sr']/4)
+    #print("reading {0}".format(name))
     if name == 'emg':
         emg = vars['listener'].get_emgVals()
+        #print(len(emg))
         if len(emg) != 9:
             return
         for i in range(9):
             sout[0, i] = emg.popleft()
+        print(sout)
     elif name == 'orientation':
         orientation = vars['listener'].get_orientation()
+        #print(len(orientation))
         if len(orientation) != 11:
             return
         for i in range(11):
             sout[0, i] = orientation.popleft()
+        print(sout)
     else:
         print('unknown channel name')
 
