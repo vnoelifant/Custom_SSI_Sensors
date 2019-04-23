@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<pipeline ssi-v="1">
+
+	<register>
+		<load name="python" />
+		<load name="ioput" />
+        <load name="ssimouse" />
+    </register>
+
+    <sensor create="Mouse:mouse" sr="50.0" mask="1" event="true" address="click@button">
+        <output channel="button" pin="button" />
+    </sensor>
+
+    <sensor create="PythonSensor" syspath="respeaker_camera" script="camera_sensor">
+        <output channel="video" pin="camera"/>
+    </sensor>
+
+    <!-- visualization
+	<consumer create="VideoPainter:plot" title="camera" flip="true">
+		<input pin="camera" frame="1" delta="0"/>
+	</consumer>
+
+	decoration
+	<object create="Decorator" icon="true" title="Pipeline">
+		<area pos="0,0,400,600">console</area>
+		<area pos="400,0,640,480">plot</area>
+	</object> -->
+
+</pipeline>
