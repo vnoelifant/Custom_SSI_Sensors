@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<pipeline ssi-v="1">
+    <register>
+        <load name="python"/>
+        <load name="ioput"/>
+    </register>
+    <sensor create="PythonSensor" script="gazesensor" syspath=".">
+        <output channel="gaze" pin="gaze"/>
+    </sensor>
+    <consumer create="FileWriter" path="gazedata" overwrite="true" keepEmpty="false" stream="true" type="1">   
+        <input pin="gaze" frame="0.5s"/>
+    </consumer>
+</pipeline>
