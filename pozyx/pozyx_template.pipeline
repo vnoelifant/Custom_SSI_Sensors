@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<pipeline>
+
+	<register>
+		<load name="python"/>		
+		<load name="ioput"/>
+		<load name="graphic"/>		
+	</register>	
+	 
+
+	<!-- Sensors -->
+	<sensor create="PythonSensor" script="mtp_ssi" block="0.1">
+		<output channel="{CHANNEL NAME}" pin="{CHANNEL NAME}"/>		
+	</sensor>
+
+
+	<!-- Consumers -->
+	<consumer create="FileWriter" path="{CHANNEL NAME}" type="1">
+		<input pin="{CHANNEL NAME}" frame="10"/>			
+	</consumer>
+	
+</pipeline>

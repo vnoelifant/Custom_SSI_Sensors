@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+
+<pipeline>
+
+	<register>
+		<load name="python"/>		
+		<load name="ioput"/>
+		<load name="graphic"/>		
+	</register>	
+	 
+
+	<!-- Sensors -->
+	<sensor create="PythonSensor" script="mtp_ssi" block="0.1">
+		<output channel="position" pin="position"/>	
+		<!-- <output channel="temperature" pin="temperature"/> -->
+		
+	</sensor>
+
+	<!-- <sensor create="PythonSensor" script="mtp_ssi" block="0.1">
+		<output channel="temperature" pin="temperature"/>		
+	</sensor> -->
+
+
+	<!-- Consumers -->
+	<consumer create="FileWriter" path="data/position" type="1">
+		<input pin="position" frame="10"/>		
+	</consumer>
+
+	<!-- <consumer create="FileWriter" path="data/temperature" type="1">
+		<input pin="temperature" frame="10"/>			
+	</consumer> -->
+
+
+
+<!-- 
+	<consumer create="PointsPainter:plot" title="viz" size="10" type="1">
+		<input pin="temperature" frame="10"/>
+	</consumer>
+
+	<object create="Decorator" icon="true" title="Pipeline">
+		<area pos="0,0,400,600">plot</area>
+	</object> -->
+	
+</pipeline>
