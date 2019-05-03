@@ -7,82 +7,111 @@ import os
 
 # TODO find better way to do colors
 colors = ['r', 'g', 'b', 'c', 'm', 'y', 'k', 'w', 'r', 'g', 'b', 'c', 'm', 'y', 'k', 'w']
-xbounds = [-10000, 10000]
-ybounds = [-10000, 10000]
+xbounds = [-3000, 15000]
+ybounds = [-3000, 8000]
+flag = True
+
+fig = ""
+ids = {}
+trail = 10
+ax_list = []
+print("GLOBALS INITIALIZED")
 
 
-# try 13, 20-22
-def main(filename='./data/position13.stream~', slow_flag=False):
-    plt.ion()
-    ax_list = []
-    fig = plt.figure()
+def getOptions(opts, vars):
+    pass
 
-    assert os.path.isfile(args.file)
 
-    with open(filename, 'r') as f:
-        ids = {}
-        trail = 15
+def getEventAddress(opts, vars):
+    pass
 
-        # Fleetwood Gym
-        #plt.xlim(0, 28000)
-        #plt.ylim(-3000, 17000)
 
+def consume_enter(sins, board, opts, vars):
+    print("HELLO CONSUME_ENTER JUST RAN!!!!!!")
+
+
+def consume(info, sins, board, opts, vars): 
+    #setup()
+    # print("------------------------------ ", list(sins[0]) )
+    # print("Flag: ", flag)
+    # flag += 1
+    if sins[0][1] != 0:
+        main(sins[0])
+
+
+def consume_flush(sins, board, opts, vars):
+    pass
+
+
+# plt.ion()
+# gl_fig = plt.figure()
+# ids = {}
+# trail = 15
+# ax_list = []
+# plt.xlim(xbounds[0], xbounds[1])
+# plt.ylim(ybounds[0], ybounds[1])
+# plt.draw()
+
+
+def setup():
+    pass
+
+
+def main(dataset):
+    global flag
+    global fig
+    global ids
+    global trail
+    global ax_list
+    # print(flag)
+
+    if flag:
+        plt.ion()
+        fig = plt.figure()
         plt.xlim(xbounds[0], xbounds[1])
         plt.ylim(ybounds[0], ybounds[1])
         plt.draw()
+        flag = False
 
-        # for i in range(100):
-        for fline in f:
-            print('.')
+    print('.')
 
-            # grab tag id, xval, and yval
-            line = fline.split(" ")
-            lineid = hex(int(float(line[0])))
-            linex = float(line[1])
-            liney = float(line[2])
-            placement = 0
+    # grab tag id, xval, and yval
 
-            # if its a new tag add it to the list
-            if lineid not in list(ids.keys()):
-                ids[lineid] = {
-                    'x': [0] * trail,
-                    'y': [0] * trail
-                }
-                ax_list.append(plt.axes())
+    lineid = hex(int(float(dataset[0])))
+    linex = float(dataset[1])
+    liney = float(dataset[2])
+    placement = 0
 
-            placement = list(ids.keys()).index(lineid)
+    # if its a new tag add it to the list
+    if lineid not in list(ids.keys()):
+        ids[lineid] = {
+            'x': [0] * trail,
+            'y': [0] * trail
+        }
+        ax_list.append(plt.axes())
 
-            ids[lineid]['x'].append(np.array(linex))
-            ids[lineid]['x'].pop(0)
+    placement = list(ids.keys()).index(lineid)
 
-            ids[lineid]['y'].append(np.array(liney))
-            ids[lineid]['y'].pop(0)
+    ids[lineid]['x'].append(np.array(linex))
+    ids[lineid]['x'].pop(0)
 
-            ax_list[placement].clear()
+    ids[lineid]['y'].append(np.array(liney))
+    ids[lineid]['y'].pop(0)
 
-            plt.xlim(xbounds[0], xbounds[1])
-            plt.ylim(ybounds[0], ybounds[1])
+    ax_list[placement].clear()
 
-            for ilineid in ids.keys():
-                ax_list[list(ids.keys()).index(ilineid)].scatter(
-                    ids[ilineid]['x'],
-                    ids[ilineid]['y'],
-                    color=colors[list(ids.keys()).index(ilineid)],
-                    label=ilineid)
-                ax_list[list(ids.keys()).index(ilineid)].legend(loc='best')
+    plt.xlim(xbounds[0], xbounds[1])
+    plt.ylim(ybounds[0], ybounds[1])
 
-            fig.canvas.draw_idle()
-            plt.pause(0.0000001)
-            if slow_flag:
-                plt.pause(1)
+    for ilineid in ids.keys():
+        ax_list[list(ids.keys()).index(ilineid)].scatter(
+            ids[ilineid]['x'],
+            ids[ilineid]['y'],
+            color=colors[list(ids.keys()).index(ilineid)],
+            label=ilineid)
+        ax_list[list(ids.keys()).index(ilineid)].legend(loc='best')
 
-        print('Done')
-        plt.waitforbuttonpress()
+    fig.canvas.draw_idle()
+    plt.pause(0.000000001)
 
-
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='Stream Visualizer.')
-    parser.add_argument('-f', '--file', help='stream file to read from')
-    parser.add_argument('-s', '--slow', action='store_true', help='update slowly')
-    args = parser.parse_args()
-    main(args.file, args.slow)
+    # plt.waitforbuttonpress()

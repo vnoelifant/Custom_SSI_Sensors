@@ -26,19 +26,9 @@
 		<input pin="position" frame="10"/>		
 	</consumer>
 
-	<!-- <consumer create="FileWriter" path="data/temperature" type="1">
-		<input pin="temperature" frame="10"/>			
-	</consumer> -->
-
-
-
-<!-- 
-	<consumer create="PointsPainter:plot" title="viz" size="10" type="1">
-		<input pin="temperature" frame="10"/>
+	<consumer create="PythonConsumer" 
+	    script="mtp_ssi_viz" >
+    	<input pin="position" frame="1"/>            
 	</consumer>
-
-	<object create="Decorator" icon="true" title="Pipeline">
-		<area pos="0,0,400,600">plot</area>
-	</object> -->
 	
 </pipeline>

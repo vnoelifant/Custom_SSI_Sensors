@@ -253,15 +253,19 @@ def connect(opts, vars):
 
 
     # IDs of the tags to position, add None to position the local tag as well.
-    tag_ids = [0x6737]
+    tag_ids = [0x6735, 0x6734, 0x6737, 0x6750]
     #[0x675c, 0x0212, 0x6728, 0x6735, 0x6724, 0x6743, 0x6730, 0x6717, 0x6737, 0x675b] 
     # 0x6e58, 0x0221, 0x694c, 0x6704, 0x6756 
 
     # necessary data for calibration
-    anchors = [DeviceCoordinates(0x6712, 1, Coordinates(0, 0, 2500)), # the origin
-               DeviceCoordinates(0x672c, 1, Coordinates(0, 4000, 2500)),
-               DeviceCoordinates(0x680d, 1, Coordinates(7500, 5500, 2500)),
-               DeviceCoordinates(0x695f, 1, Coordinates(7500, 0, 2500))] 
+    # anchors = [DeviceCoordinates(0x6712, 1, Coordinates(0, 0, 2500)), # the origin
+    #            DeviceCoordinates(0x672c, 1, Coordinates(0, 4000, 2500)),
+    #            DeviceCoordinates(0x680d, 1, Coordinates(7500, 5500, 2500)),
+    #            DeviceCoordinates(0x695f, 1, Coordinates(7500, 0, 2500))] 
+    anchors = [DeviceCoordinates(0x694e, 1, Coordinates(0, 0, 2000)), # the origin
+               DeviceCoordinates(0x6707, 1, Coordinates(0, 5000, 2000)),
+               DeviceCoordinates(0x6e50, 1, Coordinates(13500, 5000, 2000)),
+               DeviceCoordinates(0x676e, 1, Coordinates(13500, 0, 2000))] 
     # positioning algorithm to use, other is PozyxConstants.POSITIONING_ALGORITHM_TRACKING
     algorithm = PozyxConstants.POSITIONING_ALGORITHM_UWB_ONLY
     # positioning dimension. Others are PozyxConstants.DIMENSION_2D, PozyxConstants.DIMENSION_2_5D
@@ -323,13 +327,15 @@ def read(name, sout, reset, board, opts, vars):
     #print("Number:", sout.num)
     #print("Dimensions",sout.dim)
     #cur_data[0].append(None)
-    #print(len(cur_data[0]))
-    vals = cur_data[0][indexes[name][0] : indexes[name][1]]
-    vals.insert(0, cur_data[0][0])
-    print(name, vals)
+    # print(cur_data)
 
-    for i in range(sout.dim):
-        sout[0, i] = float(vals[i])
+    if len(cur_data) > 0:
+        vals = cur_data[0][indexes[name][0] : indexes[name][1]]
+        vals.insert(0, cur_data[0][0])
+        print(name, vals)
+
+        for i in range(sout.dim):
+            sout[0, i] = float(vals[i])
 
 def disconnect(opts, vars):
     pass
