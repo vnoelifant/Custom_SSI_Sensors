@@ -51,10 +51,11 @@ namespace TobiiReceiver
 
                         if(toSend.Length > 44)
                         {
-                            byte[] gazeData = Encoding.ASCII.GetBytes(toSend.Substring(0, 45));
-                            // Console.WriteLine(gazeData.Length);
+                            toSend = toSend.Substring(0, 44) + ",";
+                            byte[] gazeData = Encoding.ASCII.GetBytes(toSend);
+                            //Console.WriteLine(gazeData.Length);
                             int byteSent = clientSocket.Send(gazeData);
-                            // Console.WriteLine(toSend);
+                            Console.WriteLine(toSend.Substring(0, toSend.Length-1));
                         }
                        
                     });
