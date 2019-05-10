@@ -7,13 +7,13 @@ import os
 
 # TODO find better way to do colors
 colors = ['r', 'g', 'b', 'c', 'm', 'y', 'k', 'w', 'r', 'g', 'b', 'c', 'm', 'y', 'k', 'w']
-xbounds = [-3000, 15000]
-ybounds = [-3000, 8000]
+xbounds = [-1000, 8500]
+ybounds = [-1000, 6500]
 flag = True
 
 fig = ""
 ids = {}
-trail = 10
+trail = 5
 ax_list = []
 print("GLOBALS INITIALIZED")
 

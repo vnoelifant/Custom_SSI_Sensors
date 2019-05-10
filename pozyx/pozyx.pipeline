@@ -7,28 +7,21 @@
 		<load name="ioput"/>
 		<load name="graphic"/>		
 	</register>	
-	 
+
 
 	<!-- Sensors -->
 	<sensor create="PythonSensor" script="mtp_ssi" block="0.1">
-		<output channel="position" pin="position"/>	
-		<!-- <output channel="temperature" pin="temperature"/> -->
-		
+		<!-- <output channel="position" pin="position"/> -->
+		<output channel="distance" pin="distance"/>
 	</sensor>
-
-	<!-- <sensor create="PythonSensor" script="mtp_ssi" block="0.1">
-		<output channel="temperature" pin="temperature"/>		
-	</sensor> -->
 
 
 	<!-- Consumers -->
-	<consumer create="FileWriter" path="data/position" type="1">
+	<!-- <consumer create="FileWriter" path="data/position" type="1">
 		<input pin="position" frame="10"/>		
+	</consumer> -->
+	<consumer create="FileWriter" path="data/distance" type="1">
+		<input pin="distance" frame="10"/>		
 	</consumer>
 
-	<consumer create="PythonConsumer" 
-	    script="mtp_ssi_viz" >
-    	<input pin="position" frame="1"/>            
-	</consumer>
-	
 </pipeline>

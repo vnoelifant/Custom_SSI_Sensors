@@ -10,6 +10,8 @@ of the Pozyx device both locally and remotely. Follow the steps to correctly set
 parameters and upload this sketch. Watch the coordinates change as you move your device around!
 
 """
+import math
+
 from time import sleep, time
 from pypozyx import (PozyxConstants, Coordinates, POZYX_SUCCESS, POZYX_ANCHOR_SEL_AUTO, version,
                      DeviceCoordinates, PozyxSerial, get_first_pozyx_serial_port, SingleRegister, SensorData)
@@ -157,8 +159,8 @@ class MultitagPositioning(object):
                 sleep(0.025)
 
 def getOptions(opts, vars):
-    
-    pass
+    vars['distance'] = {}
+
 
 def getChannelNames(opts, vars):
     
@@ -175,6 +177,7 @@ def getChannelNames(opts, vars):
         'linear_acceleration' : '3 values',
         'gravity_vector'      : '3 values',
         'temperature'         : '1 value',
+        'distance'            : '2 values'
         }
 
 
@@ -228,8 +231,30 @@ def initChannel(name, channel, types, opts, vars):
         channel.dim =  2
         channel.type = types.FLOAT
         channel.sr = 10
+    elif name == 'distance':
+        channel.dim =  2
+        channel.type = types.FLOAT
+        channel.sr = 10
     else:
         print('unknown channel name')
+
+
+locations = {
+    'tiilt_lab' : [DeviceCoordinates(0x6712, 1, Coordinates(0, 0, 2500)), # the origin
+                   DeviceCoordinates(0x672c, 1, Coordinates(0, 4000, 2500)),
+                   DeviceCoordinates(0x680d, 1, Coordinates(7500, 5500, 2500)),
+                   DeviceCoordinates(0x695f, 1, Coordinates(7500, 0, 2500))],
+
+    'conference_room' : [DeviceCoordinates(0x694e, 1, Coordinates(0, 0, 2000)), # the origin
+                            DeviceCoordinates(0x6707, 1, Coordinates(0, 5000, 2000)),
+                            DeviceCoordinates(0x6e50, 1, Coordinates(13500, 5000, 2000)),
+                            DeviceCoordinates(0x676e, 1, Coordinates(13500, 0, 2000))],
+
+    'fleetwood-jourdain' : [DeviceCoordinates(0x6956, 1, Coordinates(0, 0, 2362)), # the origin
+                            DeviceCoordinates(0x6e71, 1, Coordinates(0, 15850, 2362)),
+                            DeviceCoordinates(0x6767, 1, Coordinates(27127, 15850, 2362)),
+                            DeviceCoordinates(0x676e, 1, Coordinates(27127, 0, 2362))],
+}
 
 
 def connect(opts, vars):
@@ -253,19 +278,13 @@ def connect(opts, vars):
 
 
     # IDs of the tags to position, add None to position the local tag as well.
-    tag_ids = [0x6735, 0x6734, 0x6737, 0x6750]
+    tag_ids = [0x6743]
     #[0x675c, 0x0212, 0x6728, 0x6735, 0x6724, 0x6743, 0x6730, 0x6717, 0x6737, 0x675b] 
     # 0x6e58, 0x0221, 0x694c, 0x6704, 0x6756 
 
     # necessary data for calibration
-    # anchors = [DeviceCoordinates(0x6712, 1, Coordinates(0, 0, 2500)), # the origin
-    #            DeviceCoordinates(0x672c, 1, Coordinates(0, 4000, 2500)),
-    #            DeviceCoordinates(0x680d, 1, Coordinates(7500, 5500, 2500)),
-    #            DeviceCoordinates(0x695f, 1, Coordinates(7500, 0, 2500))] 
-    anchors = [DeviceCoordinates(0x694e, 1, Coordinates(0, 0, 2000)), # the origin
-               DeviceCoordinates(0x6707, 1, Coordinates(0, 5000, 2000)),
-               DeviceCoordinates(0x6e50, 1, Coordinates(13500, 5000, 2000)),
-               DeviceCoordinates(0x676e, 1, Coordinates(13500, 0, 2000))] 
+    anchors = locations['tiilt_lab']
+
     # positioning algorithm to use, other is PozyxConstants.POSITIONING_ALGORITHM_TRACKING
     algorithm = PozyxConstants.POSITIONING_ALGORITHM_UWB_ONLY
     # positioning dimension. Others are PozyxConstants.DIMENSION_2D, PozyxConstants.DIMENSION_2_5D
@@ -323,15 +342,37 @@ indexes = {
 def read(name, sout, reset, board, opts, vars):    
 
     cur_data = r.loop()
+    if len(cur_data) < 1:
+        return
 
-    #print("Number:", sout.num)
-    #print("Dimensions",sout.dim)
-    #cur_data[0].append(None)
-    # print(cur_data)
+    sample_id = cur_data[0][0]
+    point_distance = 0
 
-    if len(cur_data) > 0:
+    if name == 'distance':
+        if  hex(sample_id) not in vars['distance'].keys():
+            vars['distance'][hex(sample_id)] = {
+                'prev' : cur_data[0][indexes['position'][0] : indexes['position'][1]],
+                'dist' : 0 
+            }
+        else:
+            old = vars['distance'][hex(sample_id)]['prev']
+            new = cur_data[0][indexes['position'][0] : indexes['position'][1]]
+            point_distance = math.sqrt(sum([(a - b) ** 2 for a, b in zip(old[:2], new[:2])]))
+
+            # print('Old & New', old[:2], new[:2])
+            if point_distance > 1000:
+                vars['distance'][hex(sample_id)]['dist'] += point_distance
+                vars['distance'][hex(sample_id)]['prev'] = new
+
+                out = [sample_id] + [vars['distance'][hex(sample_id)]['dist']]
+                # out = [sample_id] + [point_distance]
+                
+                for i in range(sout.dim):
+                    sout[0, i] = float(out[i])
+        print("distance: ", sample_id, vars['distance'][hex(sample_id)]['dist'])
+    else:
         vals = cur_data[0][indexes[name][0] : indexes[name][1]]
-        vals.insert(0, cur_data[0][0])
+        vals.insert(0, sample_id)
         print(name, vals)
 
         for i in range(sout.dim):
