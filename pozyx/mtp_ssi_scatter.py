@@ -73,7 +73,7 @@ def main(dataset):
         plt.draw()
         flag = False
 
-    print('.')
+    # print('.')
 
     # grab tag id, xval, and yval
 
@@ -103,10 +103,15 @@ def main(dataset):
     plt.xlim(xbounds[0], xbounds[1])
     plt.ylim(ybounds[0], ybounds[1])
 
+    avg_x = sum(ids[lineid]['x']) / len(ids[lineid]['x'])
+    avg_y = sum(ids[lineid]['y']) / len(ids[lineid]['y'])
+
     for ilineid in ids.keys():
         ax_list[list(ids.keys()).index(ilineid)].scatter(
             ids[ilineid]['x'],
             ids[ilineid]['y'],
+            # [avg_x],
+            # [avg_y],
             color=colors[list(ids.keys()).index(ilineid)],
             label=ilineid)
         ax_list[list(ids.keys()).index(ilineid)].legend(loc='best')
