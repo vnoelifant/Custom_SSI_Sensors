@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a3c299a-d386-4c9b-ac62-d77fec26f954" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../respeaker_camera/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../respeaker_camera/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../respeaker_camera/.idea/respeaker_camera.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../respeaker_camera/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../respeaker_camera/camera_sensor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/Custom_SSI_Sensors.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/Custom_SSI_Sensors.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myo_sensor.py" beforeDir="false" afterPath="$PROJECT_DIR$/myo_sensor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../respeaker_camera/imagetake_5.py" beforeDir="false" afterPath="$PROJECT_DIR$/../respeaker_camera/imagetake_5.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test.pipeline" beforeDir="false" afterPath="$PROJECT_DIR$/../test.pipeline" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,11 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/myo_helpers/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-77">
-              <caret line="25" column="20" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
+            <state relative-caret-position="663">
+              <caret line="41" column="23" lean-forward="true" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="23" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -30,22 +30,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myo_helpers/original_main.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="189" column="13" selection-start-line="189" selection-start-column="13" selection-end-line="189" selection-end-column="13" />
-              <folding>
-                <element signature="e#0#10#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/myo_sensor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="487">
-              <caret line="57" column="19" selection-start-line="57" selection-start-column="15" selection-end-line="57" selection-end-column="19" />
+            <state relative-caret-position="323">
+              <caret line="49" column="49" lean-forward="true" selection-start-line="49" selection-start-column="12" selection-end-line="49" selection-end-column="49" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -61,7 +49,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myo_helpers/myo-sdk-win-0.9.0/include/myo/cxx/Hub.hpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="459">
               <caret line="27" column="38" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="38" />
             </state>
           </provider>
@@ -69,16 +57,12 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myo_helpers/myo-sdk-win-0.9.0/include/myo/cxx/Myo.hpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-85" />
-          </provider>
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myo_helpers/myo-sdk-win-0.9.0/include/myo/cxx/impl/Hub_impl.hpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3828" />
-          </provider>
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -112,16 +96,16 @@
         <option value="$PROJECT_DIR$/clean.sh" />
         <option value="$PROJECT_DIR$/myo_helpers/original_main.py" />
         <option value="$PROJECT_DIR$/myo_helpers/main.py" />
-        <option value="$PROJECT_DIR$/myo_sensor.py" />
         <option value="$USER_HOME$/Downloads/imagetake_5.py" />
+        <option value="$PROJECT_DIR$/myo_sensor.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-11" />
-    <option name="y" value="-11" />
-    <option name="width" value="2582" />
-    <option name="height" value="1403" />
+    <option name="x" value="-12" />
+    <option name="y" value="-12" />
+    <option name="width" value="2583" />
+    <option name="height" value="1404" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -129,6 +113,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -141,87 +126,10 @@
               <item name="myo_sensor" type="462c0819:PsiDirectoryNode" />
               <item name="myo_helpers" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="myo_sensor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="myo_sensor" type="462c0819:PsiDirectoryNode" />
-              <item name="myo_helpers" type="462c0819:PsiDirectoryNode" />
-              <item name="myo-sdk-win-0.9.0" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="myo_sensor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="myo_sensor" type="462c0819:PsiDirectoryNode" />
-              <item name="myo_helpers" type="462c0819:PsiDirectoryNode" />
-              <item name="myo-sdk-win-0.9.0" type="462c0819:PsiDirectoryNode" />
-              <item name="bin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="myo_sensor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="myo_sensor" type="462c0819:PsiDirectoryNode" />
-              <item name="myo_helpers" type="462c0819:PsiDirectoryNode" />
-              <item name="myo-sdk-win-0.9.0" type="462c0819:PsiDirectoryNode" />
-              <item name="include" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="myo_sensor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="myo_sensor" type="462c0819:PsiDirectoryNode" />
-              <item name="myo_helpers" type="462c0819:PsiDirectoryNode" />
-              <item name="myo-sdk-win-0.9.0" type="462c0819:PsiDirectoryNode" />
-              <item name="include" type="462c0819:PsiDirectoryNode" />
-              <item name="myo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="myo_sensor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="myo_sensor" type="462c0819:PsiDirectoryNode" />
-              <item name="myo_helpers" type="462c0819:PsiDirectoryNode" />
-              <item name="myo-sdk-win-0.9.0" type="462c0819:PsiDirectoryNode" />
-              <item name="include" type="462c0819:PsiDirectoryNode" />
-              <item name="myo" type="462c0819:PsiDirectoryNode" />
-              <item name="cxx" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="myo_sensor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="myo_sensor" type="462c0819:PsiDirectoryNode" />
-              <item name="myo_helpers" type="462c0819:PsiDirectoryNode" />
-              <item name="myo-sdk-win-0.9.0" type="462c0819:PsiDirectoryNode" />
-              <item name="include" type="462c0819:PsiDirectoryNode" />
-              <item name="myo" type="462c0819:PsiDirectoryNode" />
-              <item name="cxx" type="462c0819:PsiDirectoryNode" />
-              <item name="detail" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="myo_sensor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="myo_sensor" type="462c0819:PsiDirectoryNode" />
-              <item name="myo_helpers" type="462c0819:PsiDirectoryNode" />
-              <item name="myo-sdk-win-0.9.0" type="462c0819:PsiDirectoryNode" />
-              <item name="include" type="462c0819:PsiDirectoryNode" />
-              <item name="myo" type="462c0819:PsiDirectoryNode" />
-              <item name="cxx" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="myo_sensor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="myo_sensor" type="462c0819:PsiDirectoryNode" />
-              <item name="myo_helpers" type="462c0819:PsiDirectoryNode" />
-              <item name="myo-sdk-win-0.9.0" type="462c0819:PsiDirectoryNode" />
-              <item name="include" type="462c0819:PsiDirectoryNode" />
-              <item name="myo" type="462c0819:PsiDirectoryNode" />
-              <item name="libmyo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="myo_sensor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="myo_sensor" type="462c0819:PsiDirectoryNode" />
-              <item name="myo_helpers" type="462c0819:PsiDirectoryNode" />
-              <item name="myo-sdk-win-0.9.0" type="462c0819:PsiDirectoryNode" />
-              <item name="include" type="462c0819:PsiDirectoryNode" />
-              <item name="myo" type="462c0819:PsiDirectoryNode" />
-              <item name="libmyo" type="462c0819:PsiDirectoryNode" />
-              <item name="detail" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -256,6 +164,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1721" height="935" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.2" />
@@ -282,17 +191,6 @@
       <path value="$PROJECT_DIR$/MYO" />
       <path value="$PROJECT_DIR$/myo_helpers" />
     </ignored-roots>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/myo_sensor.py</url>
-          <line>47</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/myo_helpers/process_data.py">
@@ -324,14 +222,14 @@
     <entry file="file://$PROJECT_DIR$/myo_helpers/myo-sdk-win-0.9.0/bin/myo64.dll">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/myo_helpers/myo-sdk-win-0.9.0/include/myo/cxx/impl/Hub_impl.hpp">
+    <entry file="file://$USER_HOME$/Downloads/imagetake_5.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3828" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myo_helpers/myo-sdk-win-0.9.0/include/myo/cxx/Myo.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-85" />
+        <state relative-caret-position="-1717">
+          <caret line="56" column="4" lean-forward="true" selection-start-line="56" selection-start-column="4" selection-end-line="56" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/myo_helpers/myo-sdk-win-0.9.0/include/myo/myo.hpp">
@@ -339,10 +237,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/myo_helpers/myo-sdk-win-0.9.0/include/myo/cxx/Hub.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="459">
           <caret line="27" column="38" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="38" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myo_helpers/myo-sdk-win-0.9.0/include/myo/cxx/Myo.hpp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myo_helpers/myo-sdk-win-0.9.0/include/myo/cxx/impl/Hub_impl.hpp">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/myo_helpers/original_main.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -354,30 +258,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myo_helpers/main.py">
+    <entry file="file://$PROJECT_DIR$/myo_sensor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-77">
-          <caret line="25" column="20" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
+        <state relative-caret-position="323">
+          <caret line="49" column="49" lean-forward="true" selection-start-line="49" selection-start-column="12" selection-end-line="49" selection-end-column="49" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Downloads/imagetake_5.py">
+    <entry file="file://$PROJECT_DIR$/myo_helpers/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1717">
-          <caret line="56" column="4" lean-forward="true" selection-start-line="56" selection-start-column="4" selection-end-line="56" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myo_sensor.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="57" column="19" selection-start-line="57" selection-start-column="15" selection-end-line="57" selection-end-column="19" />
+        <state relative-caret-position="663">
+          <caret line="41" column="23" lean-forward="true" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="23" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
