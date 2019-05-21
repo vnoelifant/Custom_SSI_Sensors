@@ -1,11 +1,12 @@
 import myo
 from myo_helpers import main
+from collections import deque
 import time
 import threading
 
 
 def getOptions(opts, vars):
-    opts['sr'] = 1.0
+    opts['sr'] = 30
 
     myo.init(sdk_path='./myo_sensor/myo_helpers/myo-sdk-win-0.9.0')
 
@@ -37,24 +38,32 @@ def connect(opts, vars):
 
 
 def read(name, sout, reset, board, opts, vars):
-    vars['hub'].run(handler=vars['listener'].on_event, duration_ms=int((opts['sr']*1000)/4))
+    vars['hub'].run(handler=vars['listener'].on_event, duration_ms=10)
     #time.sleep(opts['sr']/4)
     #print("reading {0}".format(name))
     if name == 'emg':
         emg = vars['listener'].get_emgVals()
         #print(len(emg))
+        #print("EMG DATA:")
         if len(emg) != 9:
-            return
+            print(emg)
+            emgVals = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+            emg = deque(emgVals)
         for i in range(9):
             sout[0, i] = emg.popleft()
+            #print(sout[0,i])
         #print(sout)
     elif name == 'orientation':
         orientation = vars['listener'].get_orientation()
+        #print("ORIENTATION DATA: ")
         #print(len(orientation))
         if len(orientation) != 11:
-            return
+            print(orientation)
+            ori = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            orientation = deque(ori)
         for i in range(11):
             sout[0, i] = orientation.popleft()
+            #print(sout[0,i])
         #print(sout)
     else:
         print('unknown channel name')
