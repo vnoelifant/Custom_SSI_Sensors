@@ -1,0 +1,11 @@
+c:\users\sespwalkup\source\repos\TobiiReceiver\TobiiReceiver\bin\Debug\TobiiReceiver.exe.config
+c:\users\sespwalkup\source\repos\TobiiReceiver\TobiiReceiver\bin\Debug\TobiiReceiver.exe
+c:\users\sespwalkup\source\repos\TobiiReceiver\TobiiReceiver\bin\Debug\TobiiReceiver.pdb
+c:\users\sespwalkup\source\repos\TobiiReceiver\TobiiReceiver\obj\Debug\TobiiReceiver.csprojAssemblyReference.cache
+c:\users\sespwalkup\source\repos\TobiiReceiver\TobiiReceiver\obj\Debug\TobiiReceiver.csproj.CoreCompileInputs.cache
+c:\users\sespwalkup\source\repos\TobiiReceiver\TobiiReceiver\obj\Debug\TobiiReceiver.exe
+c:\users\sespwalkup\source\repos\TobiiReceiver\TobiiReceiver\obj\Debug\TobiiReceiver.pdb
+c:\users\sespwalkup\source\repos\TobiiReceiver\TobiiReceiver\bin\Debug\Tobii.EyeX.Client.dll
+c:\users\sespwalkup\source\repos\TobiiReceiver\TobiiReceiver\bin\Debug\Tobii.Interaction.Model.dll
+c:\users\sespwalkup\source\repos\TobiiReceiver\TobiiReceiver\bin\Debug\Tobii.Interaction.Net.dll
+c:\users\sespwalkup\source\repos\TobiiReceiver\TobiiReceiver\obj\Debug\TobiiReceiver.csproj.CopyComplete

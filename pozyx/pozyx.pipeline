@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+<pipeline>
+
+	<register>
+		<load name="python"/>		
+		<load name="ioput"/>
+		<load name="graphic"/>		
+	</register>	
+
+
+	<!-- Sensors -->
+	<sensor create="PythonSensor" script="mtp_ssi" block="0.1">
+		<output channel="position" pin="position"/>
+		<output channel="distance" pin="distance"/>
+	</sensor>
+
+
+	<!-- Consumers -->
+	<!-- <consumer create="FileWriter" path="data/position" type="1">
+		<input pin="position" frame="10"/>		
+	</consumer> -->
+
+	<consumer create="FileWriter" path="data/distance" type="1">
+		<input pin="distance" frame="10"/>		
+	</consumer>
+
+	<consumer create="PythonConsumer" script="mtp_ssi_scatter" >
+    	<input pin="position" frame="1"/>            
+	</consumer>
+
+</pipeline>

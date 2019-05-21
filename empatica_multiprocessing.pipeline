@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<pipeline ssi-v="1">
+	
+	<register>
+		<load name="ssisignal"/>
+		<load name="ssiioput"/>
+		<load name="python"/>
+		<load name="graphic" />
+	</register>
+	
+	
+<!-- set the synchronization interval greater than the watch dog, but smaller than the buffer size -->
+
+	<sensor create="PythonSensor" script="empatica_processing" block="0.5" optsstr="sr=32.0;dim=3">
+		<output channel="acc" pin="acc" watch="4.0s"/>
+		<output channel="bvp" pin="bvp" watch="4.0s"/>
+		<output channel="gsr" pin="gsr" watch="4.0s"/>
+		<output channel="temp" pin="temp" watch="4.0s"/>
+	</sensor>
+	
+	<consumer create="FileWriter" type = "1" path="./empatica/acc">
+		<input pin="acc" frame =".25s" /> 
+	</consumer>
+	<consumer create="FileWriter" type = "1" path="./empatica/bvp">
+		<input pin="bvp" frame =".2s" /> 
+	</consumer>
+	<consumer create="FileWriter" type = "1" path="./empatica/gsr">
+		<input pin="gsr" frame ="1s" /> 
+	</consumer>
+	<consumer create="FileWriter" type = "1" path="./empatica/temp">
+		<input pin="temp" frame ="1s" /> 
+	</consumer>
+	
+</pipeline>
+
+
+<!-- chile at 1:21 device ID BC3864
+     chile at 1:23 in between leg bouncing
+	 this is acceleration v7
+--> 
