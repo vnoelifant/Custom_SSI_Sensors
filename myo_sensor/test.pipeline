@@ -7,16 +7,16 @@
         <load name="ssimouse" />
     </register>
     
-    <sensor create="PythonSensor" syspath="myo_sensor" script="myo_sensor" block="0.1" optsstr="sr=24">
+    <sensor create="PythonSensor"script="myo_sensor" block="0.1" optsstr="sr=10">
         <output channel="emg" pin="emg"/>
         <output channel="orientation" pin="ori"/>
     </sensor>
 
-    <consumer create="FileWriter" path="data\\emg" overwrite="true" type="1">
+    <consumer create="FileWriter" path="..\data\\emg" overwrite="true" type="1">
         <input pin="emg" frame="2.0s" />
     </consumer>
     
-    <consumer create="FileWriter" path="data\\orientation" overwrite="true" type="1">
+    <consumer create="FileWriter" path="..\data\\orientation" overwrite="true" type="1">
 		<input pin="ori" frame="2.0s" />
 	</consumer>
 

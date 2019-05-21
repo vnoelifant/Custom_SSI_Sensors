@@ -61,8 +61,12 @@ class MyoListener(myo.DeviceListener):
 
     def get_orientation(self):
         #print(self.ORIENTATION_DATA)
-        return self.ORIENTATION_DATA
+        val = self.ORIENTATION_DATA
+        self.ORIENTATION_DATA = deque()
+        return val
 
     def get_emgVals(self):
         #print(self.EMG_DATA)
-        return self.EMG_DATA
+        val = self.EMG_DATA
+        self.EMG_DATA = deque()
+        return val

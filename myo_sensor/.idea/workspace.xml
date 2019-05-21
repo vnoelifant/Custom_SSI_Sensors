@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a3c299a-d386-4c9b-ac62-d77fec26f954" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/Custom_SSI_Sensors.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/Custom_SSI_Sensors.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../misc/test.pipeline" beforeDir="false" afterPath="$PROJECT_DIR$/../misc/test.pipeline" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myo_helpers/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/myo_helpers/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myo_sensor.py" beforeDir="false" afterPath="$PROJECT_DIR$/myo_sensor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../respeaker_camera/imagetake_5.py" beforeDir="false" afterPath="$PROJECT_DIR$/../respeaker_camera/imagetake_5.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test.pipeline" beforeDir="false" afterPath="$PROJECT_DIR$/../test.pipeline" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,11 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myo_helpers/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="663">
-              <caret line="41" column="23" lean-forward="true" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="23" />
+            <state relative-caret-position="561">
+              <caret line="33" column="43" lean-forward="true" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="43" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -29,11 +27,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/myo_sensor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="49" column="49" lean-forward="true" selection-start-line="49" selection-start-column="12" selection-end-line="49" selection-end-column="49" />
+            <state relative-caret-position="136">
+              <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -95,8 +93,8 @@
         <option value="$PROJECT_DIR$/test.pipeline" />
         <option value="$PROJECT_DIR$/clean.sh" />
         <option value="$PROJECT_DIR$/myo_helpers/original_main.py" />
-        <option value="$PROJECT_DIR$/myo_helpers/main.py" />
         <option value="$USER_HOME$/Downloads/imagetake_5.py" />
+        <option value="$PROJECT_DIR$/myo_helpers/main.py" />
         <option value="$PROJECT_DIR$/myo_sensor.py" />
       </list>
     </option>
@@ -258,20 +256,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myo_sensor.py">
+    <entry file="file://$PROJECT_DIR$/myo_helpers/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="49" column="49" lean-forward="true" selection-start-line="49" selection-start-column="12" selection-end-line="49" selection-end-column="49" />
+        <state relative-caret-position="561">
+          <caret line="33" column="43" lean-forward="true" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="43" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myo_helpers/main.py">
+    <entry file="file://$PROJECT_DIR$/myo_sensor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="41" column="23" lean-forward="true" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="23" />
+        <state relative-caret-position="136">
+          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
