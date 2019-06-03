@@ -1,4 +1,4 @@
-# Instructions
+Instructions
 
 1. Download Myo Connect from: https://support.getmyo.com/hc/en-us/articles/360018409792-Myo-Connect-SDK-and-firmware-downloads
 2. If using a mac, changes the sdk in myo_helper folder to the mac sdk on the link above
