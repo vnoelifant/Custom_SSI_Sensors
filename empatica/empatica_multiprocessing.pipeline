@@ -11,25 +11,33 @@
 	
 <!-- set the synchronization interval greater than the watch dog, but smaller than the buffer size -->
 
-	<sensor create="PythonSensor" script="empatica_processing" block="0.5" optsstr="sr=32.0;dim=3">
+	<sensor create="PythonSensor" script="empatica_processing_mw" block="0.5">
 		<output channel="acc" pin="acc" watch="4.0s"/>
-		<output channel="bvp" pin="bvp" watch="4.0s"/>
+		<!--<output channel="bvp" pin="bvp" watch="4.0s"/> -->
 		<output channel="gsr" pin="gsr" watch="4.0s"/>
-		<output channel="temp" pin="temp" watch="4.0s"/>
-	</sensor>
+		<output channel="tag" pin="tag" watch="4.0s"/>
+
+<!-- 		<output channel="temp" pin="temp" watch="4.0s"/>
+ -->	</sensor>
 	
-	<consumer create="FileWriter" type = "1" path="./empatica/acc">
-		<input pin="acc" frame =".25s" /> 
+ 	<consumer create="FileWriter" type = "1"  path="..\data\\$(num,2)_empatica-acc" overwrite='false'>
+		<input pin="acc" frame ="1.0s" /> 
 	</consumer>
-	<consumer create="FileWriter" type = "1" path="./empatica/bvp">
+<!-- 	<consumer create="FileWriter" type = "1" path="./empatica/bvp">
 		<input pin="bvp" frame =".2s" /> 
+	</consumer> -->
+	<consumer create="FileWriter" type ="1"  path="..\data\\$(num,2)_empatica-gsr" overwrite='false'> <!-- -->
+		<input pin="gsr" frame ="1" /> 
 	</consumer>
-	<consumer create="FileWriter" type = "1" path="./empatica/gsr">
-		<input pin="gsr" frame ="1s" /> 
+	<consumer create="FileWriter" type ="1"  path="..\data\\$(num,2)_empatica-tag" overwrite='false'> <!-- -->
+		<input pin="tag" frame ="1" /> 
 	</consumer>
-	<consumer create="FileWriter" type = "1" path="./empatica/temp">
+<!-- 	<consumer create="FileWriter" type = "1" path="./empatica/temp">
 		<input pin="temp" frame ="1s" /> 
-	</consumer>
+	</consumer> -->
+		<!-- <consumer create="FileWriter" type ="1" path="..\data\\$(num,2)_empatica-tag" overwrite='true'> 
+		<input pin="tag" frame ="1" /> 
+	</consumer> -->
 	
 </pipeline>
 
