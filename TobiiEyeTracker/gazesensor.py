@@ -60,7 +60,7 @@ def read(name, sout, reset, board, opts, vars):
             ar_to_write = data = all_data[start:finish].split(',')[:-1]
             start+=45
             finish+=45
-            if len(ar_to_write) == 3:
+            if len(ar_to_write) == 3:# 
                 for d in range(sout.dim):
                     sout[n, d] = float(ar_to_write[d])
     vars['socket'] = s
