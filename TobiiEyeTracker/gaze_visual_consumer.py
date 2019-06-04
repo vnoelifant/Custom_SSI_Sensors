@@ -13,16 +13,13 @@ def getOptions(opts, vars):
     opts['monitor_size'] = [1920, 1080]
 
 def consume_enter(sins, board, opts, vars):
-    print("Setting up hits array...")
     global hits_array
     hits_array = np.zeros((math.ceil(opts["monitor_size"][0]/10), math.ceil(opts["monitor_size"][1]/10)))
     monitor_size[0] = opts["monitor_size"][0]
     monitor_size[1] = opts["monitor_size"][1]
     print(hits_array.shape)
-    print("Finished setting up hits array...")
 
 def consume(info, sins, board, opts, vars):
-    print("Consume called...")
     if sins[0][1] != 0:
         main(sins[0])
 
@@ -40,8 +37,8 @@ def main(data):
         global monitor_size
         plt.ion()
         fig = plt.figure()
-        plt.xlim(0, monitor_size[0] + 2)
-        plt.ylim(0, monitor_size[1] + 2)
+        # plt.xlim(0, monitor_size[0] + 2)
+        # plt.ylim(0, monitor_size[1] + 2)
         ax = fig.add_subplot(111)
         ax.set_title('Gaze Color Map')
         plt.draw()
@@ -54,6 +51,6 @@ def main(data):
     print("x_coord: ", x_coord)
     print("y_coord: ", y_coord)
 
-    hits_array[int(x_coord/10), int(y_coord/10)] += 10
+    hits_array[int(x_coord/10), int(y_coord/10)] += 100
     plt.imshow(hits_array)
     plt.pause(0.000000001)
