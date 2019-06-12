@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+
+<pipeline>
+
+	<register>
+		<load name="ssipython"/>		
+		<load name="ssigraphic"/>
+	</register>	
+	
+	<!-- # A galvanic skin response (GSR) sensor
+		
+	
+	GSR stands for galvanic skin response, is a method of measuring the electrical conductance of the skin. Strong emotion can cause stimulus to your sympathetic nervous system, resulting more sweat being secreted by the sweat glands. The device used to send GSR response to SSI pipeline is the Grove - GSR. This sensor allows you to spot strong emotions by simple attaching two electrodes to two fingers on one hand.
+	
+	References: http://wiki.seeedstudio.com/Grove-GSR_Sensor/
+
+
+	The function `getChannelNames` simply outputs channel names and a help string:
+	
+	\input{path=ecg.py;function=getChannelNames;type=python}
+	
+	The function `initChannel` defines the stream dimension, value type and sample rate:
+
+	\input{path=ppg.py;function=initChannel;type=python}
+
+	The previous functions tell SSI what kind of streams are provided by the script. Then, before the processing actually starts, the function `connect` is called, which we use to load the PPG and initialize a counter to memorize the current read position. Note that we store both variables in a dictionary `vars` (this way we prevent conflicts between multiple instances of the same script).
+	
+	\input{path=ppg.py;function=connect;type=python}
+	
+	Afterwards, SSI loops the function `read`. In each cycle we get the signal from `vars` and write the next n values to the object `sout`. The type of the object is `ssipystream`, which is one of several [types](https://rawgit.com/hcmlab/ssi/master/docs/index.html#python-types) that are used to share data between SSI and Python.
+	
+	\input{path=ecg.py;function=read;type=python}
+	
+	To add the script to the pipeline, we add an instance of `PythonSensor`. Here, we use the option `block` we define how many seconds of data we want to read during a cycle. [[See also]](https://rawgit.com/hcmlab/ssi/master/docs/index.html#python-sensor)	
+	
+	-->	
+	<sensor create="PythonSensor" script="gsr" block="0.1">
+		<output channel="gsr" pin="gsr"/>		
+	</sensor>
+	<!---->	
+	
+	<!-- # Visualization 	
+	
+	Finally, we would like to visualize the GSR signal. Although, it is generated with a Python script, we can of course process it in the usual way.	
+	
+	-->
+	<consumer create="SignalPainter:plot" title="GSR" size="10.0">
+		<input pin="gsr" frame="0.2s"/>		
+	</consumer>		
+	<object create="Decorator" icon="true" title="Pipeline">
+		<area pos="0,0,400,600">console</area>
+		<area pos="400,0,800,800">plot*</area>
+	</object>
+	<!---->	
+
+</pipeline>
