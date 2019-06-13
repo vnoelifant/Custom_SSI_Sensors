@@ -3,22 +3,23 @@ import matplotlib
 import numpy as np
 import math
 
-# TODO: See if you need to adjust the figure size
+MONITOR_HEIGHT = 1080
+MONITOR_WIDTH = 1090
+
 fig = ""
 ax = []
-hits_array = np.empty((1080, 1920))
+hits_array = np.empty((MONITOR_WIDTH, MONITOR_HEIGHT))
 flag = True
 monitor_size = [1080, 1920]
 
 def getOptions(opts, vars):
-    opts['monitor_size'] = [1080, 1920]
+    opts['monitor_size'] = [MONITOR_WIDTH, MONITOR_HEIGHT]
 
 def consume_enter(sins, board, opts, vars):
     global hits_array
     hits_array = np.zeros((math.ceil(opts["monitor_size"][0]/100), math.ceil(opts["monitor_size"][1]/100)))
     monitor_size[0] = opts["monitor_size"][0]
     monitor_size[1] = opts["monitor_size"][1]
-    print(hits_array.shape)
 
 def consume(info, sins, board, opts, vars):
     if sins[0][1] != 0:
@@ -33,7 +34,6 @@ def main(data):
     global hits_array
     global flag
     if flag:
-        global monitor_size
         plt.ion()
         fig = plt.figure()
         ax = fig.add_subplot(111)
