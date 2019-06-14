@@ -9,35 +9,41 @@
 	</register>
 	
 	
-<!-- set the synchronization interval greater than the watch dog, but smaller than the buffer size -->
-
-	<sensor create="PythonSensor" script="empatica_processing_mw" block="0.5">
+	   <!-- set the synchronization interval greater than the watch dog, but smaller than the buffer size -->
+       <!-- create= type of sensor i.e. audio, video, etc, PythonSensor is for customizable sensor-->
+	   <!--Script is the python file, pin is used to send data from python to the pipeline -->
+	<sensor create="PythonSensor" script="empatica_processing_sj_comments" block="0.5">
 		<output channel="acc" pin="acc" watch="4.0s"/>
-		<!--<output channel="bvp" pin="bvp" watch="4.0s"/> -->
 		<output channel="gsr" pin="gsr" watch="4.0s"/>
 		<output channel="tag" pin="tag" watch="4.0s"/>
-
-<!-- 		<output channel="temp" pin="temp" watch="4.0s"/>
- -->	</sensor>
+	</sensor>
+ 
+	<!-- Uncomment this to try adding another device --> 
+	<!-- 
+	<sensor create="PythonSensor" script="<insert new file name> block="0.5">
+		<output channel="acc" pin="acc" watch="4.0s"/>
+		<output channel="gsr" pin="gsr" watch="4.0s"/>
+		<output channel="tag" pin="tag" watch="4.0s"/>
+	</sensor>
 	
- 	<consumer create="FileWriter" type = "1"  path="..\data\\$(num,2)_empatica-acc" overwrite='false'>
+	-->
+	
+	<!-- This is file writing for the collection for the first python sensor	-->
+	<!-- The path is set this way so all data collection for the device are named the same thing. -->
+ 	<consumer create="FileWriter" type = "1" path="..\data\\$(num,2)_empatica-acc" overwrite='false'>
 		<input pin="acc" frame ="1.0s" /> 
 	</consumer>
-<!-- 	<consumer create="FileWriter" type = "1" path="./empatica/bvp">
-		<input pin="bvp" frame =".2s" /> 
-	</consumer> -->
-	<consumer create="FileWriter" type ="1"  path="..\data\\$(num,2)_empatica-gsr" overwrite='false'> <!-- -->
+
+	<consumer create="FileWriter" type = "1" path="..\data\\$(num,2)_empatica-gsr" overwrite='false'> <!-- -->
 		<input pin="gsr" frame ="1" /> 
 	</consumer>
-	<consumer create="FileWriter" type ="1"  path="..\data\\$(num,2)_empatica-tag" overwrite='false'> <!-- -->
+	<consumer create="FileWriter" type = "1" path="..\data\\$(num,2)_empatica-tag" overwrite='false'> <!-- -->
 		<input pin="tag" frame ="1" /> 
 	</consumer>
-<!-- 	<consumer create="FileWriter" type = "1" path="./empatica/temp">
-		<input pin="temp" frame ="1s" /> 
-	</consumer> -->
-		<!-- <consumer create="FileWriter" type ="1" path="..\data\\$(num,2)_empatica-tag" overwrite='true'> 
-		<input pin="tag" frame ="1" /> 
-	</consumer> -->
+	
+	<consumer create="SignalPainter:plot" title="acc" size="10.0">
+		<input pin="acc" frame="1.0s"/>      
+	</consumer>
 	
 </pipeline>
 
