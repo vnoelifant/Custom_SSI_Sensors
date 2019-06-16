@@ -30,7 +30,7 @@ A Variety of physiological sensors to be used with [SSI](https://github.com/hcml
   * Social Signal Interpretation (SSI) Framework accessed [here](https://github.com/hcmlab/ssi).
     * Installation instructions shown [here](https://rawgit.com/hcmlab/ssi/master/docs/index.html#installation). 
 
-### INSTALLATION INSTRUCTIONS
+### TO RUN:
 
 IN WORK
 
