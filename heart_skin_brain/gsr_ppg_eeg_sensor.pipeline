@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+
+<pipeline>
+
+	<register>
+		<load name="ssipython"/>		
+		<load name="ssigraphic"/>
+	</register>	
+	
+	<!-- # A photoplethysmogram (PPG) sensor
+		
+	This heart rate monitor sensor is a pulse sensor which is developed based on PPG techniques. This is a simple and low-cost optical technique that can be used to detect blood volume changing in the microvascular bed of tissues. It is relatively easy to detect the pulsatile component of the cardiac cycle according to this theory.
+	More specifically, photoplethysmography measures the volumetric change of the heart by measuring light transmission or reflection. As the heart contracts, blood pressure within the left ventricle – the main pumping chamber – increases.
+	This increase forces a pressurized “pulse” of blood into the arteries of the body, which causes them to swell slightly before once again returning to their previous state.
+	By simply shining a light on a patch of skin with an LED light source, the increased pulse pressure will cause a measurable difference in the amount of light reflected back onto or transmitted through to a light sensor.  The LED light should be placed in an area where arteries are close to the skin, such as a fingertip, or an earlobe.
+
+	References: https://www.dfrobot.com/product-1540.html
+	https://imotions.com/blog/measuring-the-heart-how-does-ecg-and-ppg-work/
+
+
+	The function `getChannelNames` simply outputs channel names and a help string:
+	
+	\input{path=ecg.py;function=getChannelNames;type=python}
+	
+	The function `initChannel` defines the stream dimension, value type and sample rate:
+
+	\input{path=ppg.py;function=initChannel;type=python}
+	
+	The previous functions tell SSI what kind of streams are provided by the script. Then, before the processing actually starts, the function `connect` is called, which we use to load the PPG and initialize a counter to memorize the current read position. Note that we store both variables in a dictionary `vars` (this way we prevent conflicts between multiple instances of the same script).
+	
+	\input{path=ppg.py;function=connect;type=python}
+	
+	Afterwards, SSI loops the function `read`. In each cycle we get the signal from `vars` and write the next n values to the object `sout`. The type of the object is `ssipystream`, which is one of several [types](https://rawgit.com/hcmlab/ssi/master/docs/index.html#python-types) that are used to share data between SSI and Python.
+	
+	\input{path=ecg.py;function=read;type=python}
+	
+	To add the script to the pipeline, we add an instance of `PythonSensor`. Here, we use the option `block` we define how many seconds of data we want to read during a cycle. [[See also]](https://rawgit.com/hcmlab/ssi/master/docs/index.html#python-sensor)	
+	
+	-->	
+
+	<sensor create="PythonSensor" script="gsr" block="0.1">
+		<output channel="gsr" pin="gsr"/>		
+	</sensor>
+	
+	<sensor create="PythonSensor" script="ppg" block="0.1">
+		<output channel="ppg" pin="ppg" watch="4.0s"/>		
+	</sensor>
+
+	<sensor create="PythonSensor" script="eeg" block="0.08">
+		<output channel="eeg" pin="eeg" watch="4.0s"/>		
+	</sensor>
+	<!---->	
+	
+	<!-- # Visualization 	
+	
+	Finally, we would like to visualize the PPG signal. Although, it is generated with a Python script, we can of course process it in the usual way.	
+	
+	-->
+	<consumer create="SignalPainter:plot" title="GSR" size="10.0" autoscale="true">
+		<input pin="gsr" frame="0.2s"/>		
+	</consumer>	
+	
+	<consumer create="SignalPainter:plot" title="PPG" size="10.0" autoscale="true">
+		<input pin="ppg" frame="0.2s"/>		
+	</consumer>	
+
+	<consumer create="SignalPainter:plot" title="EEG" size="10.0" autoscale="true">
+		<input pin="eeg" frame="0.01s"/>		
+	</consumer>		
+
+	<object create="Decorator" icon="true" title="Pipeline">
+		<area pos="0,0,400,600">console</area>
+		<area pos="400,0,400,600">plot*</area>
+	</object>
+	<!---->	
+
+</pipeline>
