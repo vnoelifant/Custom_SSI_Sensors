@@ -6,7 +6,7 @@ import subprocess
 import sys
 
 
-PATH_TO_C_EXECUTABLE = 'C:\\Users\\TIILTMAINPC\\Documents\\Github\\Custom_SSI_Sensors\\TobiiEyeTracker\\TobiiReceiver\\TobiiReceiver\\bin\\Debug\\TobiiReceiver.exe'
+PATH_TO_C_EXECUTABLE = ''
 
 
 
@@ -38,11 +38,8 @@ def connect(opts, vars):
 
     HOST = "127.0.0.1"
     PORT = 5555
-
-    # global s
     DQ = []
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    # s.setblocking(0)
     s.connect((HOST, PORT))
     vars['socket'] = s
     vars['DQ'] = DQ
