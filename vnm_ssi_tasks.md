@@ -53,7 +53,7 @@ This is my documentation for my accomplishments and next steps for class.
     * **Demonstrated physiological sensors at the multimodal workshop. Fun time!**
   
   * ### **Next Steps**:
-    * Experiment with transformers and Machine Learning Tasks in SSI
+    * Experiment with transformers and Machine Learning Tasks in SSI (using physiological sensors I created)
     * Utilize sensors I created to work on emotion recognition, maybe integrate smiles and facial landmarks. 
 
 
