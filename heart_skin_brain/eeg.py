@@ -1,16 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Estimate Relaxation from Band Powers
-
-This example shows how to buffer, epoch, and transform EEG data from a single
-electrode into values for each of the classic frequencies (e.g. alpha, beta, theta)
-Furthermore, it shows how ratios of the band powers can be used to estimate
-mental state for neurofeedback.
-
-The neurofeedback protocols described here are inspired by
-*Neurofeedback: A Comprehensive Review on System Design, Methodology and Clinical Applications* by Marzbani et. al
-
-Adapted from https://github.com/NeuroTechX/bci-workshop
+Read LSL EEG streaming data using Muse-LSL library
 """
 
 import os
