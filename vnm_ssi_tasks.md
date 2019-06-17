@@ -49,6 +49,8 @@ This is my documentation for my accomplishments and next steps for class.
               *  [![IMAGE ALT TEXT](http://img.youtube.com/vi/RmkDWUocLfs/0.jpg)](http://www.youtube.com/watch?v=RmkDWUocLfs "Audio and Visual Sensors on SSI")
         * **NOTE**
           * Encountered many issues with parsing EEG data with Muse, Neurosky. Discussions held with Marcelo on this, and finally came to the solution in getting it to work after installing BlueMuse and Muse-LSL on newly purchased windows machine. 
+
+    * **Demonstrated physiological sensors at the multimodal workshop. Fun time!**
   
   * ### **Next Steps**:
     * Experiment with transformers and Machine Learning Tasks in SSI
