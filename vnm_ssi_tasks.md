@@ -1,6 +1,6 @@
-# EECS 497: Advanced Multimodal Interfaces
-# Veronica Medrano
-# 6/17/19
+## EECS 497: Advanced Multimodal Interfaces
+## Veronica Medrano
+## 6/17/19
 
 This is my documentation for my accomplishments and next steps for class. 
 
@@ -71,19 +71,16 @@ This is my documentation for my accomplishments and next steps for class.
             * EEG with ECG
             * EEG with PPG, GSR
               * See video here!
-                *  [![IMAGE ALT TEXT](http://img.youtube.com/vi/vY3h6-k4f7I
-    /0.jpg)](http://www.youtube.com/watch?v=vY3h6-k4f7I "EEG,PPG,GSR Signals on SSI")
+                *  [![IMAGE ALT TEXT](http://img.youtube.com/vi/vY3h6-k4f7I/0.jpg)](http://www.youtube.com/watch?v=vY3h6-k4f7I "EEG,PPG,GSR Signals on SSI")
             * EEG with ECG, GSR
               * See video here!
-                *  [![IMAGE ALT TEXT](http://img.youtube.com/vi/tBMmrahfTf8
-    /0.jpg)](http://www.youtube.com/watch?v=tBMmrahfTf8 "EEG,ECG,GSR Signals on SSI")
+                *  [![IMAGE ALT TEXT](http://img.youtube.com/vi/tBMmrahfTf8/0.jpg)](http://www.youtube.com/watch?v=tBMmrahfTf8 "EEG,ECG,GSR Signals on SSI")
             
             * EEG with PPG, ECG
           * Audio-Visual 
             * Code found [here](https://github.com/tiilt-lab/Custom_SSI_Sensors/tree/master/audio_visual)
             * See video here!
-              *  [![IMAGE ALT TEXT](http://img.youtube.com/vi/RmkDWUocLfs
-  /0.jpg)](http://www.youtube.com/watch?v=RmkDWUocLfs "Audio and Visual Sensors on SSI")
+              *  [![IMAGE ALT TEXT](http://img.youtube.com/vi/RmkDWUocLfs/0.jpg)](http://www.youtube.com/watch?v=RmkDWUocLfs "Audio and Visual Sensors on SSI")
         * **NOTE**
           * Encountered many issues with parsing EEG data with Muse, Neurosky. Discussions held with Marcelo on this, and finally came to the solution in getting it to work after installing BlueMuse and Muse-LSL on newly purchased windows machine. 
   
