@@ -68,11 +68,11 @@ Go here: https://github.com/kowalej/BlueMuse
 ### Demo videos:
 
 EEG with PPG, GSR AND AUDIOVISUAL, PLUS VOICE EMOTION DETECTION!
-Detecting "disgust, sadness and boredom" in voice
+  * Detecting "disgust, sadness and boredom" in voice
 [![IMAGE ALT TEXT](http://img.youtube.com/vi/Dq9SbwqZvRY/0.jpg)](http://www.youtube.com/watch?v=Dq9SbwqZvRY "Using Emovoice (detecting disgust, sadness, and boredom)")
 
 EEG with PPG, GSR AND AUDIOVISUAL, PLUS VOICE EMOTION DETECTION!
-Detecting "happiness" in voice
+ * Detecting "happiness" in voice
 [![IMAGE ALT TEXT](http://img.youtube.com/vi/3vu2Bpd8vng/0.jpg)](http://www.youtube.com/watch?v=3vu2Bpd8vng "Using Emovoice (detecting happiness)")
 
 EEG with PPG, GSR AND AUDIOVISUAL:
