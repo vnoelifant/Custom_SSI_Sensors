@@ -1,6 +1,6 @@
 # Heart, Brainwave, and Skin Conductance Sensors
 
-A Variety of physiological sensors to be used with [SSI](https://github.com/hcmlab/ssi). Sensors include the following:
+A Variety of physiological sensors, audiovisual signals, and voice emotion detection via [emovoice](https://github.com/hcmlab/emovoice)(a set of tools to build a real-time emotion recognizer based on acoustic properties of speech) to be used with the Social Signal Interpretation Framework [(SSI)](https://github.com/hcmlab/ssi). Sensors include the following:
 
   * **GSR (Galvanic Skin Response)**
     * Refers to changes in sweat gland activity that are reflective of the intensity of our emotional state, otherwise known as emotional arousal.
@@ -16,6 +16,9 @@ A Variety of physiological sensors to be used with [SSI](https://github.com/hcml
   * **EEG with PPG, GSR**
   * **EEG with ECG, GSR**
   * **EEG with PPG, GSR**
+  * **EEG with PPG, GSR AND AUDIOVISUAL:**
+  * **EEG with PPG, GSR AND AUDIOVISUAL:**
+    * Using emovoice tool for voice emotion detection 
 
 ### OVERVIEW OF SOFTWARE AND HARDWARE REQUIRED
 
@@ -54,9 +57,26 @@ Go here: https://github.com/kowalej/BlueMuse
 ![](images/blue_muse.png)
 11. Enter any .pipeline program into xmlpipe by running xmlpipe {sensor}.pipeline. 
 
+### TO RUN WITH EMOVOICE:
+1. CLone the following [repo](https://github.com/hcmlab/emovoice). 
+2. Add the cloned folders and files to the pipes directory wherever you downloaded SSI. For me the path is C:\Users\veron\ssi\pipes. 
+3. Make sure the path to the xmlpipe.exe interpreter is added to your PATH.
+4. Run file do_all.cmd. 
+5. Add any of the physiological sensor pipeline programs into the emovoice.pipeline program into and run xmlpipe emovoice.pipeline. 
   
 
 ### Demo videos:
+
+EEG with PPG, GSR AND AUDIOVISUAL, PLUS VOICE EMOTION DETECTION!
+Detecting "disgust, sadness and boredom" in voice
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/Dq9SbwqZvRY/0.jpg)](http://www.youtube.com/watch?v=Dq9SbwqZvRY "Using Emovoice (detecting disgust, sadness, and boredom)")
+
+EEG with PPG, GSR AND AUDIOVISUAL, PLUS VOICE EMOTION DETECTION!
+Detecting "happiness" in voice
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/3vu2Bpd8vng/0.jpg)](http://www.youtube.com/watch?v=3vu2Bpd8vng "Using Emovoice (detecting happiness)")
+
+EEG with PPG, GSR AND AUDIOVISUAL:
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/DqONgXAobW8/0.jpg)](http://www.youtube.com/watch?v=DqONgXAobW8 "EEG,ECG,GSR Signals on SSI")
 
 EEG with PPG, GSR:
 [![IMAGE ALT TEXT](http://img.youtube.com/vi/vY3h6-k4f7I/0.jpg)](http://www.youtube.com/watch?v=vY3h6-k4f7I "EEG,PPG,GSR Signals on SSI")
